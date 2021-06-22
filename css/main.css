@@ -1,0 +1,132 @@
+body {
+    padding-top: 5rem;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+.btn-primary {
+    background-color: #fff!important;
+    color: gray !important;
+    border-color: #fff !important;
+}
+.btn-primary :hover{
+    border-color: #fff!important;
+    background-color: #fff!important;
+
+
+}
+.form-control {
+    display: initial Im !important;
+    width: 68%  !important;
+    background-color: transparent !important;
+}
+
+.btn-info {
+    background-color: #fff !important;
+    color: gray !important;
+    border-color: #fff !important;
+}
+.btn-info :hover {
+    border-color: #fff  !important;
+    background-color: #fff !important;
+}
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {
+    background-color: #fff !important;
+    border-color: #fff !important;
+}
+#wrapper {
+    overflow-x: hidden;
+  }
+  
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    transition: margin 0.25s ease-out;
+  }
+  
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  
+  body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: 0;
+  }
+  .list-group-item-light.list-group-item-action:focus, .list-group-item-light.list-group-item-action:hover {
+      color:#dc3545 !important;
+  }
+  .emailRowOptions{
+      display: flex;
+      align-items: center;
+
+  }
+  .emailRow {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      border-bottom: 1px solid whitesmoke;
+      cursor: pointer;
+      z-index: 999;
+  }
+  .emailRow:hover {
+      border-top: 1px solid white;
+      box-shadow:  0 4px 4px -2px rgba(0, 0, 0, 0.24);
+  }
+  .emailRowMessage{
+      display: flex;
+      flex: 0.8;
+      align-items: 13px;
+      font-size: 13px;
+  }
+  .emailRowMessage h4 {
+      width: 400px;
+      white-space:  nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: 5px;
+      padding-right: 5px;
+      font-size: 1.0rem;
+  }
+  .emailRowTittle{
+   font-size: 15px;
+   flex: 0.3;
+   margin-top: 15px;
+  }
+  .emailRowTIme{
+    padding-right: 	15px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 1rem;
+  }
+  .btn-danger {
+      background-color: #fff!important;
+      border-color: #fff!important;
+      color: #dc3545!important;
+  }
+
+  
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
