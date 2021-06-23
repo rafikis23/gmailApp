@@ -31,6 +31,7 @@ body {
 .btn-info :hover {
     border-color: #fff  !important;
     background-color: #fff !important;
+    
 }
 .btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {
     background-color: #fff !important;
@@ -109,10 +110,53 @@ body {
     margin-top: 20px;
     margin-bottom: 1rem;
   }
+  .btn-warning {
+      border-radius: 15px 15px 15px 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 40px;
+      padding-right: 40px;
+     margin-left: 21rem !important;
+     text-align: center !important;
+     background-color: orangered!important;
+     color: #fff!important;
+     border-color: orangered!important;
+  }
+  .emailNew {
+      position: fixed;
+      bottom: 0;
+      right: 10px;
+      background-color: #fff;
+      width: 41%;
+      border-style: solid;
+      border-radius: 20px 20px 0px 0px;
+      
+  }
+  #buttonCrear{
+      text-align: center;
+
+  }
+  p {
+      margin-top: -2px !important;
+      width: auto!important;
+  }
+  .emailHeader {
+      background-color: black;
+      color: #fff;
+      border-radius: 20px 20px 0px 0px;
+  }
+  .buttonCerrar{
+    position: absolute;
+    border-style: solid;
+    top: 0rem;
+    right: 10px;
+    height: 2rem;
+  }
   .btn-danger {
       background-color: #fff!important;
       border-color: #fff!important;
       color: #dc3545!important;
+      text-align: center!important;
   }
 
   

@@ -49,13 +49,14 @@
       <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading border-bottom bg-light text-center">Redactar(50)</div>
+            <div class="sidebar-heading border-bottom bg-light text-center">
+                <button class="btn btn-info" onclick="redactar()"><i class="fas fa-plus"></i> Redactar</button></div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!"><i class="far fa-envelope"></i> Recibidos</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!"><i class="far fa-paper-plane"></i> Enviados</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarRecibidos()"><i class="far fa-envelope"></i> Recibidos</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarEnviados()"><i class="far fa-paper-plane"></i> Enviados</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!"><i class="far fa-star"></i> Destacados</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!"><i class="fas fa-exclamation-triangle"></i> Spam</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!"><i class="far fa-trash-alt"></i> Papelera</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarEliminados()"><i class="far fa-trash-alt"></i> Papelera</a>
                 
             </div>
         </div>
@@ -68,184 +69,57 @@
                 </div>
             </nav>
             <!-- Page content-->
-            <div class="container-fluid">
+            <div class="container-fluid" id="listaCorreos">
                
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
 
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
-                    <div class="emailList">
-                        <div class="emailRow">
-                            <div class="emailRowOptions">
-                                <button class="btn btn-primary"><i class="far fa-star"></i></button>
-                                <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
-
-                            </div>
-                            <h3 class="emailRowTittle">Juan Ramon</h3>
-                            <div class="emailRowMessage">
-                                <h4>Lorem ipsum dolor sit.</h4>
-                            </div>
-                            <p class="emailRowTIme">10:00</p>
-                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
-
-
-                        </div>
-                    </div>
                     
                   
                 
             </div>
         </div>
     </div>
+    
+    
+        <form>
+            <div class="emailNew " id="redactarMensaje" style="display: none;">
+                <div class="emailHeader">
+                    <p>Mensaje Nuevo</p>
+                    <button class="btn btn-primary buttonCerrar" onclick="cerrar()">X</button>
+                </div>
+                <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label text-center">De:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" placeholder="De">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label text-center">Para:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" placeholder="Para">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label text-center">Asunto:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="colFormLabel" placeholder="Asunto">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="colFormLabel" class="col-sm-2 col-form-label text-center">Mensaje:</label>
+                    <div class="col-sm-10">
+                      <textarea type="text" class="form-control" id="colFormLabel" rows="6"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col-sm-3" id="buttonCrear">
+                          <button type="button" class="btn btn-warning">Enviar</button>
+                      </div>
+                  </div>
+                    
+            </div>
+        </form>
+    
+
 
         
         <main role="main" class="container">
