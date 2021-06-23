@@ -102,16 +102,109 @@ var papelera = [
         spam: false
     }
 ]
+var destacados = [];
+var spam = [];
 console.log('recibidos', recibidos);
 console.log('enviados', enviados);
 var localStorage = window.localStorage;
   localStorage.clear();
   localStorage.setItem('recibidos', JSON.stringify(recibidos));
   localStorage.setItem('enviados', JSON.stringify(enviados));
+  localStorage.setItem('papelera', JSON.stringify(papelera));
 
   function generarRecibidos(){
     document.getElementById('listaCorreos').innerHTML = '';
     for (let i = 0; i < recibidos.length; i++) {
+        document.getElementById('listaCorreos').innerHTML += 
+        `
+        <div class="emailList">
+            <div class="emailRow">
+                <div class="emailRowOptions">
+                    <button class="btn btn-primary" onclick="marcarDestacado(${i})"><i class="far fa-star"></i></button>
+                    <button class="btn btn-primary" onclick="marcarSpam(${i})"><i class="fas fa-exclamation-triangle"></i></button>
+
+                </div>
+                <h3 class="emailRowTittle">${recibidos[i].emisor}</h3>
+                <div class="emailRowMessage">
+                    
+                    <h4>${recibidos[i].asunto} - ${recibidos[i].mensaje}</h4>
+                </div>
+                <p class="emailRowTIme">${recibidos[i].hora}</p>
+                <button class="btn btn-danger" onclick="eliminarMensaje(${i})"><i class="far fa-trash-alt"></i></button>
+
+            </div>
+        </div>
+        `  
+    }
+  }
+  generarRecibidos();
+  function marcarDestacado(codigo){
+      console.log('Destacado', codigo)
+      if (recibidos[codigo].destacado == true ){
+          recibidos[codigo].destacado = false
+          console.log(recibidos[codigo].destacado);
+      }
+      if (recibidos[codigo].destacado == false){
+          recibidos[codigo].destacado = true
+          console.log(recibidos[codigo].destacado);
+      } 
+      if (recibidos[codigo].destacado == true){
+        let reci = codigo;
+        console.log('Correo Destacado', reci);
+        
+        let nuevoDestacado = {
+          emisor: recibidos[reci].emisor,
+          correoEmisor: recibidos[reci].correoEmisor,
+          asunto: recibidos[reci].asunto,
+          mensaje: recibidos[reci].mensaje,
+          hora: recibidos[reci].hora,
+          leido: true,
+          destacado: recibidos[codigo].destacado,
+          spam: false
+      }
+
+        destacados.push(nuevoDestacado);
+        localStorage.setItem('destacados', destacados);
+        //let indice = codigo-1;
+        recibidos.splice(codigo,1);
+        localStorage.setItem('recibidos', recibidos);
+        generarRecibidos();
+      }
+      
+  }
+  function marcarSpam(codigo){
+    console.log('Spam', codigo)
+    if (recibidos[codigo].spam == false){
+        recibidos[codigo].spam = true
+        console.log(recibidos[codigo].spam);
+    }
+    if (recibidos[codigo].spam == true){
+      let reci = codigo;
+      console.log('Correo Spam', reci);
+      
+      let nuevoSpam = {
+            emisor: recibidos[reci].emisor,
+            correoEmisor: recibidos[reci].correoEmisor,
+            asunto: recibidos[reci].asunto,
+            mensaje: recibidos[reci].mensaje,
+            hora: recibidos[reci].hora,
+            leido: true,
+            destacado: false,
+            spam: recibidos[reci].spam
+        }
+      spam.push(nuevoSpam);
+      localStorage.setItem('spam', spam);
+      //let indice = codigo-1;
+      recibidos.splice(codigo,1);
+      localStorage.setItem('recibidos', recibidos);
+      generarRecibidos();
+    }
+    
+}
+
+  function generarDestacados(){
+    document.getElementById('listaCorreos').innerHTML = '';
+    for (let i = 0; i < destacados.length; i++) {
         document.getElementById('listaCorreos').innerHTML += 
         `
         <div class="emailList">
@@ -121,12 +214,12 @@ var localStorage = window.localStorage;
                 <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
 
             </div>
-            <h3 class="emailRowTittle">${recibidos[i].emisor}</h3>
+            <h3 class="emailRowTittle">${destacados[i].emisor}</h3>
             <div class="emailRowMessage">
                 
-                <h4>${recibidos[i].asunto} - ${recibidos[i].mensaje}</h4>
+                <h4>${destacados[i].asunto} - ${destacados[i].mensaje}</h4>
             </div>
-            <p class="emailRowTIme">${recibidos[i].hora}</p>
+            <p class="emailRowTIme">${destacados[i].hora}</p>
             <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
 
 
@@ -136,7 +229,35 @@ var localStorage = window.localStorage;
         
     }
   }
-  generarRecibidos();
+  function generarSpam(){
+        document.getElementById('listaCorreos').innerHTML = '';
+        for (let i = 0; i < spam.length; i++) {
+            document.getElementById('listaCorreos').innerHTML += 
+            `
+            <div class="emailList">
+            <div class="emailRow">
+                <div class="emailRowOptions">
+                    <button class="btn btn-primary"><i class="far fa-star"></i></button>
+                    <button class="btn btn-primary"><i class="fas fa-exclamation-triangle"></i></button>
+    
+                </div>
+                <h3 class="emailRowTittle">${spam[i].emisor}</h3>
+                <div class="emailRowMessage">
+                    
+                    <h4>${spam[i].asunto} - ${spam[i].mensaje}</h4>
+                </div>
+                <p class="emailRowTIme">${spam[i].hora}</p>
+                <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+    
+    
+            </div>
+        </div>
+            `
+            
+        }
+      
+  }
+
   function generarEnviados(){
     document.getElementById('listaCorreos').innerHTML = '';
     for (let i = 0; i < enviados.length; i++) {
@@ -155,7 +276,7 @@ var localStorage = window.localStorage;
                 <h4>${enviados[i].asunto} - ${enviados[i].mensaje}</h4>
             </div>
             <p class="emailRowTIme">${enviados[i].hora}</p>
-            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+            <button class="btn btn-danger" ><i class="far fa-trash-alt"></i></button>
 
 
         </div>
@@ -163,6 +284,30 @@ var localStorage = window.localStorage;
         `
         
     }
+  }
+  function eliminarMensaje(codigo) {
+      let reci = codigo;
+      console.log('Correo Eliminado', reci);
+      console.log();
+      let nuevoPapelera = {
+        emisor: recibidos[reci].emisor,
+        correoEmisor: recibidos[reci].correoEmisor,
+        asunto: recibidos[reci].asunto,
+        mensaje: recibidos[reci].mensaje,
+        hora: recibidos[reci].hora,
+        leido: true,
+        destacado: true,
+        spam: false
+    }
+      papelera.push(nuevoPapelera);
+      localStorage.setItem('papelera', papelera);
+      let indice = codigo-1;
+      recibidos.splice(indice,1);
+      localStorage.setItem('recibidos', recibidos);
+      generarRecibidos();
+
+      //(console.log(rec);
+      //console.log('Enviar a papelera', recibidos);
   }
   function generarEliminados(){
     document.getElementById('listaCorreos').innerHTML = '';
@@ -191,6 +336,28 @@ var localStorage = window.localStorage;
         
     }
   }
+  function enviarCorreo(){
+      console.log('Enviar');
+      let txtDe = document.getElementById('txt-de').value;
+      let txtPara = document.getElementById('txt-para').value;
+      let txtAsunto = document.getElementById('txt-asunto').value;
+      let txtMensaje = document.getElementById('txt-mensaje').value;
+      let txtHora = new Date().toLocaleTimeString();
+      let nuevo = {
+        receptor: txtPara,
+        emailReceptor: '',
+        asunto: txtAsunto,
+        mensaje: txtMensaje,
+        hora: txtHora
+      }
+      console.log(nuevo);
+      enviados.push(nuevo);
+      localStorage.setItem('enviados', JSON.stringify(enviados));
+      cerrar();
+      generarEnviados();
+    
+  }
+
 
 (function($) {
 

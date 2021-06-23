@@ -54,8 +54,8 @@
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarRecibidos()"><i class="far fa-envelope"></i> Recibidos</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarEnviados()"><i class="far fa-paper-plane"></i> Enviados</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!"><i class="far fa-star"></i> Destacados</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!"><i class="fas fa-exclamation-triangle"></i> Spam</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarDestacados()"><i class="far fa-star"></i> Destacados</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarSpam()"><i class="fas fa-exclamation-triangle"></i> Spam</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3 text-center" href="#!" onclick="generarEliminados()"><i class="far fa-trash-alt"></i> Papelera</a>
                 
             </div>
@@ -89,30 +89,30 @@
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label text-center">De:</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="colFormLabel" placeholder="De">
+                      <input type="text" class="form-control" id="txt-de" placeholder="De">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label text-center">Para:</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="colFormLabel" placeholder="Para">
+                      <input type="text" class="form-control" id="txt-para" placeholder="Para">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label text-center">Asunto:</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="colFormLabel" placeholder="Asunto">
+                      <input type="text" class="form-control" id="txt-asunto" placeholder="Asunto">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label text-center">Mensaje:</label>
                     <div class="col-sm-10">
-                      <textarea type="text" class="form-control" id="colFormLabel" rows="6"></textarea>
+                      <textarea type="text" class="form-control" id="txt-mensaje" rows="6"></textarea>
                     </div>
                   </div>
                   <div class="form-group row">
                       <div class="col-sm-3" id="buttonCrear">
-                          <button type="button" class="btn btn-warning">Enviar</button>
+                          <button type="button" class="btn btn-warning" onclick="enviarCorreo()">Enviar</button>
                       </div>
                   </div>
                     
